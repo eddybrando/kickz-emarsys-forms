@@ -38,6 +38,7 @@ To live on the edge and get also the most recent features automatically, ignore 
 ### Latest major version
 
 If you're completely edgy and insane, use the latest version always, which also contains breaking changes:
+
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@eddybrando.vasquez/kickz-emarsys-forms@latest"></script>
 ```
