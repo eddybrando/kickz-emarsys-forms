@@ -1,1 +1,1 @@
-"use strict";var fn=function fn(){console.log("\uD83E\uDD16 kickz-emarsys-forms");return undefined};module.exports=fn;
+"use strict";var fn=function fn(){console.log("\uD83E\uDD16 kickz-emarsys-forms");return undefined};fn();

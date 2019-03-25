@@ -6,4 +6,4 @@ const fn = () => {
   return undefined;
 };
 
-module.exports = fn;
+fn();
