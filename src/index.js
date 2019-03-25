@@ -1,9 +1,11 @@
 "use strict";
 
-const fn = () => {
+const eddybrando_kickzEmarsysForms = {};
+
+eddybrando_kickzEmarsysForms.init = () => {
   // TODO
   console.log('🤖 kickz-emarsys-forms');
   return undefined;
 };
 
-fn();
+eddybrando_kickzEmarsysForms.init();
