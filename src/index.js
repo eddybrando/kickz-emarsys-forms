@@ -6,4 +6,4 @@ const fn = () => {
   return undefined;
 };
 
-export default fn;
+module.exports = fn;
