@@ -9,17 +9,21 @@
 
 KICKZ custom implementation to support Emarsys API forms
 
-## Usage
+## Installing
 
-To use this script, import it directly from the CDN. For this, use one of the following imports.
+### Using CDN
 
-### Specific version
+This is most likely the option you're looking for.
+
+To import a ready-to-use version directly from the CDN, use one of the following imports.
+
+#### Specific version
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@eddybrando.vasquez/kickz-emarsys-forms@0.0.9"></script>
 ```
 
-### Latest patch version (recommended)
+#### Latest patch version (recommended)
 
 In order to leverage automatic patches, ignore the last version number:
 
@@ -27,7 +31,7 @@ In order to leverage automatic patches, ignore the last version number:
 <script src="https://cdn.jsdelivr.net/npm/@eddybrando.vasquez/kickz-emarsys-forms@0.0"></script>
 
 ```
-### Latest minor version
+#### Latest minor version
 
 To live on the edge and get also the most recent features automatically, ignore the last two version numbers:
 
@@ -35,7 +39,7 @@ To live on the edge and get also the most recent features automatically, ignore 
 <script src="https://cdn.jsdelivr.net/npm/@eddybrando.vasquez/kickz-emarsys-forms@0"></script>
 ```
 
-### Latest major version
+#### Latest major version
 
 If you're completely edgy and insane, use the latest version always, which also contains breaking changes:
 
@@ -44,3 +48,15 @@ If you're completely edgy and insane, use the latest version always, which also 
 ```
 
 **Do not use this on a production application!** Breaking changes means it'll most certainly break things without asking first for permission.
+
+### Using npm
+
+```bash
+npm install @eddybrando/kickz-emarsys-forms
+```
+
+### Using yarn
+
+```bash
+yarn add @eddybrando/kickz-emarsys-forms
+```
