@@ -1,0 +1,23 @@
+{
+  "name": "@eddybrando.vasquez/kickz-emarsys-forms",
+  "version": "0.0.1",
+  "description": "KICKZ custom implementation to support Emarsys API forms",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddybrando/kickz-emarsys-forms.git"
+  },
+  "keywords": [
+    "kickz",
+    "emarsys"
+  ],
+  "author": "Eddybrando Vásquez <dev@eddybrando.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/eddybrando/kickz-emarsys-forms/issues"
+  },
+  "homepage": "https://github.com/eddybrando/kickz-emarsys-forms#readme"
+}
