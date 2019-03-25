@@ -1,1 +1,1 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:true});exports.default=void 0;var fn=function fn(){console.log("\uD83E\uDD16 kickz-emarsys-forms");return undefined};var _default=fn;exports.default=_default;
+"use strict";var fn=function fn(){console.log("\uD83E\uDD16 kickz-emarsys-forms");return undefined};module.exports=fn;
