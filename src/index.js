@@ -1,11 +1,42 @@
 "use strict";
 
-const eddybrando_kickzEmarsysForms = {};
+const emarsysRegistrationForm = {
+  EXIT_CODES: {
+    'E001': 'No form ID specified.',
+    'E002': 'jQuery is not included.',
+  },
+  _$: null,
+  formId: null,
+};
 
-eddybrando_kickzEmarsysForms.init = () => {
-  // TODO
-  console.log('🤖 kickz-emarsys-forms');
+emarsysRegistrationForm._exit = (code) => {
+  const log = `${code}: ${emarsysRegistrationForm.EXIT_CODES[code]}`;
+  if (code.charAt(0) === 'E') {
+    console.error(log);
+  } else {
+    console.warn(log);
+  }
   return undefined;
 };
 
-eddybrando_kickzEmarsysForms.init();
+emarsysRegistrationForm._todo = () => {
+  // TODO
+  return true;
+};
+
+emarsysRegistrationForm._setupJquery = () => {
+  const _$ = window.$;
+  if (!_$) {
+    return emarsysRegistrationForm._exit('E002');
+  }
+  emarsysRegistrationForm._$ = _$;
+  return emarsysRegistrationForm._todo();
+};
+
+emarsysRegistrationForm.setup = ({ formId }) => {
+  if (!formId) {
+    return emarsysRegistrationForm._exit('E001');
+  }
+  emarsysRegistrationForm.formId = formId;
+  return emarsysRegistrationForm._setupJquery();
+};
