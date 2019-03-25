@@ -6,8 +6,7 @@
   "scripts": {
     "build": "babel src --out-dir dist --minified --no-comments",
     "serve": "node dist/index.js",
-    "start": "nodemon --exec babel-node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --exec babel-node src/index.js"
   },
   "repository": {
     "type": "git",
