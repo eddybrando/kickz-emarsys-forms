@@ -3,9 +3,10 @@
 import { EXIT_CODES } from './constants/exit_codes';
 import { exit } from './error_handling';
 
-const { E001, E002, E003 } = EXIT_CODES;
+const { E001, E002, E003, E004 } = EXIT_CODES;
 
 let $ = null;
+let form = null;
 let formId = null;
 
 const todo = () => {
@@ -13,13 +14,23 @@ const todo = () => {
   return { success: true, };
 };
 
-const setupJquery = () => {
+
+const setForm = () => {
+  const _form = $(`#${formId}`);
+  if (!_form.length) {
+    return exit(E004);
+  }
+  form = _form;
+  return todo();
+};
+
+const setJquery = () => {
   const _$ = window.$;
   if (!_$) {
     return exit(E002);
   }
   $ = _$;
-  return todo();
+  return setForm();
 };
 
 const setup = (options) => {
@@ -29,7 +40,7 @@ const setup = (options) => {
     return exit(E001);
   }
   formId = options.formId;
-  return setupJquery();
+  return setJquery();
 };
 
 export default { setup, };
