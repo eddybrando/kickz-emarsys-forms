@@ -17,6 +17,7 @@ import {
   PROXY_API_ENDPOINT,
 } from './constants/proxy_api';
 import { exit } from './error_handling';
+import { handleError } from './submit_handling';
 
 const { ALREADY_EXISTS } = EMARSYS_ERROR_CODES;
 const { E011 } = EXIT_CODES;
@@ -39,7 +40,7 @@ const updateContact = (payload) => {
     // handleSuccess();
   }).catch((e) => {
     exit(E011, e);
-    // handleError();
+    handleError();
   });
 };
 
@@ -58,7 +59,7 @@ const sendDoi = (payload) => {
     // handleSuccess();
   }).catch((e) => {
     exit(E011, e);
-    // handleError();
+    handleError();
   });
 };
 
@@ -82,6 +83,6 @@ export const registerContact = (payload) => {
     }
   }).catch((e) => {
     exit(E011, e);
-    // handleError();
+    handleError();
   });
 };

@@ -6,12 +6,14 @@ import { registerContact } from './axios_calls';
 import { exit } from './error_handling';
 
 const { REGISTER } = ACTION_TYPES;
-const { E008, E010 } = EXIT_CODES;
+const { E008, E010, W001 } = EXIT_CODES;
 
 let $ = null;
+let domErrorMsg = null;
 let fields = null;
 const fieldsEnhanced = [];
 let form = null;
+let formId = null;
 const payload = {
   contact: {},
 };
@@ -75,8 +77,22 @@ const constructor = (options, _$) => {
   $ = _$;
   fields = options.fields;
   form = options.form;
+  formId = options.formId;
   type = options.type;
   validateForm();
+};
+
+export const handleError = () => {
+  const _domErrorMsg = $(`#${formId}-error`);
+  form.hide();
+  if (!_domErrorMsg) {
+    exit(W001);
+  } else {
+    domErrorMsg = _domErrorMsg;
+    setTimeout(() => {
+      domErrorMsg.show();
+    }, 200);
+  }
 };
 
 export default constructor;

@@ -11,7 +11,7 @@
   "maxdepth": 3, // Maximum depth of 3 levels for nested blocks (within functions)
   "maxerr": 50, // Maximum of 50 errors before stopping
   "maxparams": 3, // Maximum of 3 formal params allowed per function
-  "maxstatements": 5, // Maximum of 5 statements per function
+  "maxstatements": 6, // Maximum of 6 statements per function
   "noarg": true, // Prohibit use of `arguments.caller` and `arguments.callee`
   "nocomma": true, // Prohibit use of the comma operator
   "nonbsp": true, // Prohibit "non-breaking whitespace" characters.

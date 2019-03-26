@@ -17,7 +17,7 @@ let type = null;
 const setSubmitListener = () => {
   form.on('submit', (e) => {
     e.preventDefault();
-    handleSubmit({ fields, form, type, }, $);
+    handleSubmit({ fields, form, formId, type, }, $);
   });
   return { success: true, };
 };
