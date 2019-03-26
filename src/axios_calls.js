@@ -17,6 +17,7 @@ const { ALREADY_EXISTS } = EMARSYS_ERROR_CODES;
 const { E011 } = EXIT_CODES;
 
 const ga = window.ga;
+const gaLabel = `Gender:X || ${window.location.pathname}`;
 
 const updateContact = (payload) => {
   axios.post(PROXY_API_ENDPOINT, {
@@ -29,7 +30,7 @@ const updateContact = (payload) => {
       target: EMARSYS_API_CONTACT_ENDPOINT,
     },
   }).then(() => {
-    ga(GA_SEND, GA_EVENT, GA_CATEGORY_NL_SIGNUP, GA_ACTION_ALREADY_REGISTERED, "Gender:X || " + window.location.pathname);
+    ga(GA_SEND, GA_EVENT, GA_CATEGORY_NL_SIGNUP, GA_ACTION_ALREADY_REGISTERED, gaLabel);
     // handleSuccess();
   }).catch((e) => {
     exit(E011, e);
@@ -52,7 +53,7 @@ export const registerContact = (payload) => {
       !!data.errors[Object.keys(data.errors)[0]][EMARSYS_ERROR_CODE_IDS[ALREADY_EXISTS]]) {
       updateContact(payload);
     } else {
-      ga(GA_SEND, GA_EVENT, GA_CATEGORY_NL_SIGNUP, GA_ACTION_SIGNUP, "Gender:X || " + window.location.pathname);
+      ga(GA_SEND, GA_EVENT, GA_CATEGORY_NL_SIGNUP, GA_ACTION_SIGNUP, gaLabel);
       // sendDoi();
     }
   }).catch((e) => {
