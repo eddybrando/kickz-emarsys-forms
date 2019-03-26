@@ -15,7 +15,9 @@ let fields = null;
 const fieldsEnhanced = [];
 let form = null;
 const ga = window.ga;
-const payload = [];
+const payload = {
+  registerContact: {},
+};
 let submitButton = null;
 let type = null;
 
@@ -50,10 +52,10 @@ const registerContact = (_payload) => {
 const constructPayloadForRegisterContact = (_fieldsEnhanced) => {
   _fieldsEnhanced.forEach((field) => {
     if (field.value || field.nullable) {
-      payload[field.emarsysId] = field.value;
+      payload.registerContact[field.emarsysId] = field.value;
     }
   });
-  registerContact(payload);
+  registerContact(payload.registerContact);
 };
 
 const setFieldsEnhanced = () => {
