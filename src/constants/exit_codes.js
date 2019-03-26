@@ -6,6 +6,6 @@ export const EXIT_CODES = {
 
 export const EXIT_CODE_MESSAGES = {
   [EXIT_CODES.E001]: 'Missing "formId" parameter in setup.',
-  [EXIT_CODES.E002]: 'jQuery is not included.',
+  [EXIT_CODES.E002]: 'Missing jQuery library.',
   [EXIT_CODES.E003]: 'Missing parameters in setup.',
 };
