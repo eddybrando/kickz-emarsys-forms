@@ -1,10 +1,11 @@
 "use strict";
 
+import axios from 'axios';
+import validator from 'bootstrap-validator';
 import { EXIT_CODES } from './constants/exit_codes';
 import { exit } from './error_handling';
-import validator from 'bootstrap-validator';
 
-const { E001, E002, E003, E004, E005 } = EXIT_CODES;
+const { E001, E002, E003, E004, E005, E006 } = EXIT_CODES;
 
 let $ = null;
 let form = null;
@@ -15,10 +16,17 @@ const todo = () => {
   return { success: true, };
 };
 
+const initAxios = () => {
+  if (!axios) {
+    return exit(E006);
+  }
+  return todo();
+};
+
 const setupValidation = () => {
   try {
     form.validator();
-    return todo();
+    return initAxios();
   } catch (e) {
     return exit(E005, e);
   }
