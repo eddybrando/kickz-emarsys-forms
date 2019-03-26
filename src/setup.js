@@ -3,7 +3,7 @@
 import { EXIT_CODES } from './constants/exit_codes';
 import { exit } from './error_handling';
 
-const { E001, E002, E003, E004 } = EXIT_CODES;
+const { E001, E002, E003, E004, E005 } = EXIT_CODES;
 
 let $ = null;
 let form = null;
@@ -14,6 +14,14 @@ const todo = () => {
   return { success: true, };
 };
 
+const initValidation = () => {
+  try {
+    form.validator();
+    return todo();
+  } catch (e) {
+    return exit(E005, e);
+  }
+};
 
 const setForm = () => {
   const _form = $(`#${formId}`);
@@ -21,7 +29,7 @@ const setForm = () => {
     return exit(E004);
   }
   form = _form;
-  return todo();
+  return initValidation();
 };
 
 const setJquery = () => {
