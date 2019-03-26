@@ -20,7 +20,7 @@ To import a ready-to-use version directly from the CDN, use one of the following
 #### Specific version
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@eddybrando.vasquez/kickz-emarsys-forms@0.0.9"></script>
+<script src="https://cdn.jsdelivr.net/npm/@eddybrando.vasquez/kickz-emarsys-forms@1.0.0"></script>
 ```
 
 #### Latest patch version (recommended)
@@ -28,7 +28,7 @@ To import a ready-to-use version directly from the CDN, use one of the following
 In order to leverage automatic patches, ignore the last version number:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@eddybrando.vasquez/kickz-emarsys-forms@0.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/@eddybrando.vasquez/kickz-emarsys-forms@1.0"></script>
 
 ```
 #### Latest minor version
@@ -36,7 +36,7 @@ In order to leverage automatic patches, ignore the last version number:
 To live on the edge and get also the most recent features automatically, ignore the last two version numbers:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@eddybrando.vasquez/kickz-emarsys-forms@0"></script>
+<script src="https://cdn.jsdelivr.net/npm/@eddybrando.vasquez/kickz-emarsys-forms@1"></script>
 ```
 
 #### Latest major version
