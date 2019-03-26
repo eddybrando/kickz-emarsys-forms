@@ -13,6 +13,15 @@ let formId = null;
 
 const todo = () => {
   // TODO
+  console.log('TODO');
+  return { success: true, };
+};
+
+const setSubmitListener = () => {
+  form.on('submit', (e) => {
+    e.preventDefault();
+    todo();
+  });
   return { success: true, };
 };
 
@@ -20,7 +29,7 @@ const initAxios = () => {
   if (!axios) {
     return exit(E006);
   }
-  return todo();
+  return setSubmitListener();
 };
 
 const setupValidation = () => {
