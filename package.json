@@ -7,7 +7,7 @@
     "build": "webpack",
     "serve": "node dist/index.js",
     "start": "nodemon --exec babel-node src/index.js",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
