@@ -29,7 +29,7 @@ export const registerContact = (payload) => {
       // sendDoi();
     }
   }).catch((e) => {
-    exit(E011);
+    exit(E011, e);
     // handleError();
   });
 };
