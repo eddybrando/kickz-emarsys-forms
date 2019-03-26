@@ -3,6 +3,7 @@
 import axios from 'axios';
 import { EMARSYS_ERROR_CODES, EMARSYS_ERROR_CODE_IDS } from './constants/emarsys_error_codes';
 import { EXIT_CODES } from './constants/exit_codes';
+import { EMARSYS_API_CONTACT_ENDPOINT, PROXY_API_ENDPOINT } from './constants/proxy_api';
 import { exit } from './error_handling';
 
 const { ALREADY_EXISTS } = EMARSYS_ERROR_CODES;
@@ -11,14 +12,14 @@ const { E011 } = EXIT_CODES;
 const ga = window.ga;
 
 const updateContact = (payload) => {
-  axios.post("api/forward-emarsys", {
+  axios.post(PROXY_API_ENDPOINT, {
     data: {
       method: "PUT",
       payload: {
         key_id: 3,
         contacts: [payload,],
       },
-      target: "https://api.emarsys.net/api/v2/contact",
+      target: EMARSYS_API_CONTACT_ENDPOINT,
     },
   }).then(() => {
     ga("send", "event", "NewsletterSignUp", "already registered", "Gender:X || " + window.location.pathname);
@@ -30,13 +31,13 @@ const updateContact = (payload) => {
 };
 
 export const registerContact = (payload) => {
-  axios.post("api/forward-emarsys", {
+  axios.post(PROXY_API_ENDPOINT, {
     data: {
       method: "POST",
       payload: {
         contacts: [payload,],
       },
-      target: "https://api.emarsys.net/api/v2/contact",
+      target: EMARSYS_API_CONTACT_ENDPOINT,
     },
   }).then((res) => {
     const data = res.data.data.data;
