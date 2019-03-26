@@ -17,7 +17,7 @@ import {
   PROXY_API_ENDPOINT,
 } from './constants/proxy_api';
 import { exit } from './error_handling';
-import { handleError } from './submit_handling';
+import { handleError, handleSuccess } from './submit_handling';
 
 const { ALREADY_EXISTS } = EMARSYS_ERROR_CODES;
 const { E011 } = EXIT_CODES;
@@ -37,7 +37,7 @@ const updateContact = (payload) => {
     },
   }).then(() => {
     ga(GA_SEND, GA_EVENT, GA_CATEGORY_NL_SIGNUP, GA_ACTION_ALREADY_REGISTERED, gaLabel);
-    // handleSuccess();
+    handleSuccess();
   }).catch((e) => {
     exit(E011, e);
     handleError();
@@ -56,7 +56,7 @@ const sendDoi = (payload) => {
     },
   }).then(() => {
     ga(GA_SEND, GA_EVENT, GA_CATEGORY_NL_SIGNUP, GA_ACTION_SEND_DOI, gaLabel);
-    // handleSuccess();
+    handleSuccess();
   }).catch((e) => {
     exit(E011, e);
     handleError();
