@@ -2,14 +2,16 @@
 
 import { EXIT_CODE_MESSAGES, EXIT_CODES } from './constants/exit_codes';
 
-const { E001, E002 } = EXIT_CODES;
+const { E001, E002, E003 } = EXIT_CODES;
+
+let formId = null;
 
 const emarsysRegistrationForm = {
   _$: null,
   formId: null,
 };
 
-emarsysRegistrationForm._exit = (code) => {
+const exit = (code) => {
   const log = `${code}: ${EXIT_CODE_MESSAGES[code]}`;
   if (code.charAt(0) === 'E') {
     console.error(log);
@@ -27,18 +29,20 @@ emarsysRegistrationForm._todo = () => {
 emarsysRegistrationForm._setupJquery = () => {
   const _$ = window.$;
   if (!_$) {
-    return emarsysRegistrationForm._exit(E002);
+    return exit(E002);
   }
   emarsysRegistrationForm._$ = _$;
   return emarsysRegistrationForm._todo();
 };
 
-emarsysRegistrationForm.setup = ({ formId } = {}) => {
-  if (!formId) {
-    return emarsysRegistrationForm._exit(E001);
+const setup = (options) => {
+  if (!options) {
+    return exit(E003);
+  } else if (!options.formId) {
+    return exit(E001);
   }
-  emarsysRegistrationForm.formId = formId;
+  formId = options.formId;
   return emarsysRegistrationForm._setupJquery();
 };
 
-export default emarsysRegistrationForm;
+export default { setup, };
