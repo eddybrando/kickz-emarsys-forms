@@ -1,6 +1,6 @@
 {
   "name": "@eddybrando.vasquez/kickz-emarsys-forms",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "KICKZ custom implementation to support Emarsys API forms",
   "main": "dist/index.js",
   "scripts": {
