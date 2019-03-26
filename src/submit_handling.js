@@ -97,7 +97,7 @@ export const handleError = () => {
 };
 
 export const handleSuccess = () => {
-  const _domSuccessMsg = $(`#${formId}-error`);
+  const _domSuccessMsg = $(`#${formId}-success`);
   form.hide();
   if (!_domSuccessMsg) {
     exit(W002);
