@@ -9,6 +9,7 @@ export const EXIT_CODES = {
   E007: 'E007',
   E008: 'E008',
   E009: 'E009',
+  E010: 'E010',
 };
 
 export const EXIT_CODE_MESSAGES = {
@@ -22,6 +23,7 @@ export const EXIT_CODE_MESSAGES = {
   [EXIT_CODES.E007]: 'Missing "type" parameter in setup.',
   [EXIT_CODES.E008]: 'Invalid "type" parameter in setup.',
   [EXIT_CODES.E009]: 'Missing valid "fields" parameter in setup.',
+  [EXIT_CODES.E010]: 'Fields must have valid "id" and "emarsysId" attributes.',
 };
 
 export const GENERIC_EXIT_CODE = EXIT_CODES.E000;
