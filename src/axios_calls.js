@@ -10,6 +10,25 @@ const { E011 } = EXIT_CODES;
 
 const ga = window.ga;
 
+const updateContact = (payload) => {
+  axios.post("api/forward-emarsys", {
+    data: {
+      method: "PUT",
+      payload: {
+        key_id: 3,
+        contacts: [payload,],
+      },
+      target: "https://api.emarsys.net/api/v2/contact",
+    },
+  }).then(() => {
+    ga("send", "event", "NewsletterSignUp", "already registered", "Gender:X || " + window.location.pathname);
+    // handleSuccess();
+  }).catch((e) => {
+    exit(E011, e);
+    // handleError();
+  });
+};
+
 export const registerContact = (payload) => {
   axios.post("api/forward-emarsys", {
     data: {
@@ -23,7 +42,7 @@ export const registerContact = (payload) => {
     const data = res.data.data.data;
     if (data.errors &&
       !!data.errors[Object.keys(data.errors)[0]][EMARSYS_ERROR_CODE_IDS[ALREADY_EXISTS]]) {
-      // updateContact();
+      updateContact(payload);
     } else {
       ga("send", "event", "NewsletterSignUp", "sign up", "Gender:X || " + window.location.pathname);
       // sendDoi();
