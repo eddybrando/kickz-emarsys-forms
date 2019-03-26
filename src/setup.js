@@ -6,9 +6,10 @@ import { EXIT_CODES } from './constants/exit_codes';
 import { exit } from './error_handling';
 import handleSubmit from './submit_handling';
 
-const { E001, E002, E003, E004, E005, E006, E007 } = EXIT_CODES;
+const { E001, E002, E003, E004, E005, E006, E007, E009 } = EXIT_CODES;
 
 let $ = null;
+let fields = null;
 let form = null;
 let formId = null;
 let type = null;
@@ -16,7 +17,7 @@ let type = null;
 const setSubmitListener = () => {
   form.on('submit', (e) => {
     e.preventDefault();
-    handleSubmit({ form, type, });
+    handleSubmit({ fields, form, type, }, $);
   });
   return { success: true, };
 };
@@ -67,10 +68,13 @@ const handleMissingParameterExit = (options) => {
     return exit(E001);
   } else if (!options.type) {
     return exit(E007);
+  } else if (!options.fields || options.fields.length < 1) {
+    return exit(E009);
   }
 };
 
 const setupOptions = (options) => {
+  fields = options.fields;
   formId = options.formId;
   type = options.type;
 };
@@ -78,7 +82,7 @@ const setupOptions = (options) => {
 const setup = (options) => {
   if (!options) {
     return exit(E003);
-  } else if (!options.formId || !options.type) {
+  } else if (!options.formId || !options.type || !options.fields || options.fields.length < 1) {
     return handleMissingParameterExit(options);
   }
   setupOptions(options);
