@@ -1,21 +1,12 @@
 "use strict";
 
-import { EXIT_CODE_MESSAGES, EXIT_CODES } from './constants/exit_codes';
+import { EXIT_CODES } from './constants/exit_codes';
+import { exit } from './error_handling';
 
 const { E001, E002, E003 } = EXIT_CODES;
 
 let $ = null;
 let formId = null;
-
-const exit = (code) => {
-  const log = `${code}: ${EXIT_CODE_MESSAGES[code]}`;
-  if (code.charAt(0) === 'E') {
-    console.error(log);
-  } else {
-    console.warn(log);
-  }
-  return { success: false, error: code, };
-};
 
 const todo = () => {
   // TODO
