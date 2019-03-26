@@ -16,12 +16,12 @@ emarsysRegistrationForm._exit = (code) => {
   } else {
     console.warn(log);
   }
-  return undefined;
+  return { success: false, error: code, };
 };
 
 emarsysRegistrationForm._todo = () => {
   // TODO
-  return true;
+  return { success: true, };
 };
 
 emarsysRegistrationForm._setupJquery = () => {
@@ -33,10 +33,12 @@ emarsysRegistrationForm._setupJquery = () => {
   return emarsysRegistrationForm._todo();
 };
 
-emarsysRegistrationForm.setup = ({ formId }) => {
+emarsysRegistrationForm.setup = ({ formId } = {}) => {
   if (!formId) {
     return emarsysRegistrationForm._exit('E001');
   }
   emarsysRegistrationForm.formId = formId;
   return emarsysRegistrationForm._setupJquery();
 };
+
+export default emarsysRegistrationForm;
