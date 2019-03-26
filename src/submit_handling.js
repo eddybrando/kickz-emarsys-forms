@@ -11,8 +11,12 @@ let form = null;
 let submitButton = null;
 let type = null;
 
+const setLoadingState = (isLoading) => {
+  submitButton.prop('disabled', isLoading);
+};
+
 const handleRegistration = () => {
-  // TODO
+  setLoadingState(true);
 };
 
 const checkType = () => {
