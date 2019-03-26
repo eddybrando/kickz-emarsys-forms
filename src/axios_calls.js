@@ -3,6 +3,13 @@
 import axios from 'axios';
 import { EMARSYS_ERROR_CODES, EMARSYS_ERROR_CODE_IDS } from './constants/emarsys_error_codes';
 import { EXIT_CODES } from './constants/exit_codes';
+import {
+  GA_ACTION_SIGNUP,
+  GA_ACTION_ALREADY_REGISTERED,
+  GA_CATEGORY_NL_SIGNUP,
+  GA_EVENT,
+  GA_SEND,
+} from './constants/ga';
 import { EMARSYS_API_CONTACT_ENDPOINT, PROXY_API_ENDPOINT } from './constants/proxy_api';
 import { exit } from './error_handling';
 
@@ -22,7 +29,7 @@ const updateContact = (payload) => {
       target: EMARSYS_API_CONTACT_ENDPOINT,
     },
   }).then(() => {
-    ga("send", "event", "NewsletterSignUp", "already registered", "Gender:X || " + window.location.pathname);
+    ga(GA_SEND, GA_EVENT, GA_CATEGORY_NL_SIGNUP, GA_ACTION_ALREADY_REGISTERED, "Gender:X || " + window.location.pathname);
     // handleSuccess();
   }).catch((e) => {
     exit(E011, e);
@@ -45,7 +52,7 @@ export const registerContact = (payload) => {
       !!data.errors[Object.keys(data.errors)[0]][EMARSYS_ERROR_CODE_IDS[ALREADY_EXISTS]]) {
       updateContact(payload);
     } else {
-      ga("send", "event", "NewsletterSignUp", "sign up", "Gender:X || " + window.location.pathname);
+      ga(GA_SEND, GA_EVENT, GA_CATEGORY_NL_SIGNUP, GA_ACTION_SIGNUP, "Gender:X || " + window.location.pathname);
       // sendDoi();
     }
   }).catch((e) => {
