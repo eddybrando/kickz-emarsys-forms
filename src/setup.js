@@ -2,6 +2,7 @@
 
 import { EXIT_CODES } from './constants/exit_codes';
 import { exit } from './error_handling';
+import validator from 'bootstrap-validator';
 
 const { E001, E002, E003, E004, E005 } = EXIT_CODES;
 
@@ -14,13 +15,20 @@ const todo = () => {
   return { success: true, };
 };
 
-const initValidation = () => {
+const setupValidation = () => {
   try {
     form.validator();
     return todo();
   } catch (e) {
     return exit(E005, e);
   }
+};
+
+const initValidation = () => {
+  if (!validator) {
+    return exit(E005);
+  }
+  return setupValidation();
 };
 
 const setForm = () => {
