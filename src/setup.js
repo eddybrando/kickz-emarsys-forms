@@ -4,12 +4,8 @@ import { EXIT_CODE_MESSAGES, EXIT_CODES } from './constants/exit_codes';
 
 const { E001, E002, E003 } = EXIT_CODES;
 
+let $ = null;
 let formId = null;
-
-const emarsysRegistrationForm = {
-  _$: null,
-  formId: null,
-};
 
 const exit = (code) => {
   const log = `${code}: ${EXIT_CODE_MESSAGES[code]}`;
@@ -21,18 +17,18 @@ const exit = (code) => {
   return { success: false, error: code, };
 };
 
-emarsysRegistrationForm._todo = () => {
+const todo = () => {
   // TODO
   return { success: true, };
 };
 
-emarsysRegistrationForm._setupJquery = () => {
+const setupJquery = () => {
   const _$ = window.$;
   if (!_$) {
     return exit(E002);
   }
-  emarsysRegistrationForm._$ = _$;
-  return emarsysRegistrationForm._todo();
+  $ = _$;
+  return todo();
 };
 
 const setup = (options) => {
@@ -42,7 +38,7 @@ const setup = (options) => {
     return exit(E001);
   }
   formId = options.formId;
-  return emarsysRegistrationForm._setupJquery();
+  return setupJquery();
 };
 
 export default { setup, };
