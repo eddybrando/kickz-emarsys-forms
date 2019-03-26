@@ -7,6 +7,7 @@ export const EXIT_CODES = {
   E005: 'E005',
   E006: 'E006',
   E007: 'E007',
+  E008: 'E008',
 };
 
 export const EXIT_CODE_MESSAGES = {
@@ -18,6 +19,7 @@ export const EXIT_CODE_MESSAGES = {
   [EXIT_CODES.E005]: 'Validator library failed to initialize.',
   [EXIT_CODES.E006]: 'Axios library failed to initialize.',
   [EXIT_CODES.E007]: 'Missing "type" parameter in setup.',
+  [EXIT_CODES.E008]: 'Invalid "type" parameter in setup.',
 };
 
 export const GENERIC_EXIT_CODE = EXIT_CODES.E000;
