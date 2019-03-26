@@ -2,8 +2,11 @@
 
 import axios from 'axios';
 import { EMARSYS_ERROR_CODES, EMARSYS_ERROR_CODE_IDS } from './constants/emarsys_error_codes';
+import { EXIT_CODES } from './constants/exit_codes';
+import { exit } from './error_handling';
 
 const { ALREADY_EXISTS } = EMARSYS_ERROR_CODES;
+const { E011 } = EXIT_CODES;
 
 const ga = window.ga;
 
@@ -26,7 +29,7 @@ export const registerContact = (payload) => {
       // sendDoi();
     }
   }).catch((e) => {
-    console.warn(e);
+    exit(E011);
     // handleError();
   });
 };

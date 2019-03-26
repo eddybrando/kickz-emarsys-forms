@@ -10,6 +10,7 @@ export const EXIT_CODES = {
   E008: 'E008',
   E009: 'E009',
   E010: 'E010',
+  E011: 'E011',
 };
 
 export const EXIT_CODE_MESSAGES = {
@@ -24,6 +25,7 @@ export const EXIT_CODE_MESSAGES = {
   [EXIT_CODES.E008]: 'Invalid "type" parameter in setup.',
   [EXIT_CODES.E009]: 'Missing valid "fields" parameter in setup.',
   [EXIT_CODES.E010]: 'Fields must have valid "id" and "emarsysId" attributes.',
+  [EXIT_CODES.E011]: 'Forward Emarsys API call failed.',
 };
 
 export const GENERIC_EXIT_CODE = EXIT_CODES.E000;
