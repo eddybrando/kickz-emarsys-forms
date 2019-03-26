@@ -1,16 +1,16 @@
 "use strict";
 
+import { EXIT_CODE_MESSAGES, EXIT_CODES } from './constants/exit_codes';
+
+const { E001, E002 } = EXIT_CODES;
+
 const emarsysRegistrationForm = {
-  EXIT_CODES: {
-    'E001': 'No form ID specified.',
-    'E002': 'jQuery is not included.',
-  },
   _$: null,
   formId: null,
 };
 
 emarsysRegistrationForm._exit = (code) => {
-  const log = `${code}: ${emarsysRegistrationForm.EXIT_CODES[code]}`;
+  const log = `${code}: ${EXIT_CODE_MESSAGES[code]}`;
   if (code.charAt(0) === 'E') {
     console.error(log);
   } else {
@@ -27,7 +27,7 @@ emarsysRegistrationForm._todo = () => {
 emarsysRegistrationForm._setupJquery = () => {
   const _$ = window.$;
   if (!_$) {
-    return emarsysRegistrationForm._exit('E002');
+    return emarsysRegistrationForm._exit(E002);
   }
   emarsysRegistrationForm._$ = _$;
   return emarsysRegistrationForm._todo();
@@ -35,7 +35,7 @@ emarsysRegistrationForm._setupJquery = () => {
 
 emarsysRegistrationForm.setup = ({ formId } = {}) => {
   if (!formId) {
-    return emarsysRegistrationForm._exit('E001');
+    return emarsysRegistrationForm._exit(E001);
   }
   emarsysRegistrationForm.formId = formId;
   return emarsysRegistrationForm._setupJquery();
