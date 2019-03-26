@@ -4,7 +4,7 @@
   "description": "KICKZ custom implementation to support Emarsys API forms",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel src --out-dir dist --minified --no-comments",
+    "build": "webpack",
     "serve": "node dist/index.js",
     "start": "nodemon --exec babel-node src/index.js",
     "test": "jest"
@@ -28,8 +28,11 @@
     "@babel/core": "^7.4.0",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.2",
+    "babel-loader": "^8.0.5",
     "jest": "^24.5.0",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
